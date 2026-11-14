@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Week of {{ monday.strftime('%B %d') }} · WAZ</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/">WAZ <span>Wat Aten Zij</span></a>
+      <div class="account"><span>Planning as <strong>{{ user }}</strong></span><form method="post" action="/logout"><button class="text-button" type="submit">Sign out</button></form></div>
+    </div>
+  </header>
+  <main class="container">
+    <div class="page-heading">
+      <div><p class="eyebrow">Family dinner calendar</p><h1>This week’s dinners</h1><p class="intro">A shared plan everyone can shape, one day at a time.</p></div>
+      {% if has_missing %}<form method="post" action="/plan/week"><input type="hidden" name="week" value="{{ monday.isoformat() }}"><button class="button primary" type="submit">Plan whole week</button></form>{% endif %}
+    </div>
+    {% if error %}<p class="alert" role="alert">{{ error }}</p>{% endif %}
+    <nav class="week-nav" aria-label="Weeks">
+      <a href="/?week={{ previous_week.isoformat() }}" aria-label="Previous week">← Previous</a>
+      <strong>{{ monday.strftime('%b %d') }} – {{ sunday.strftime('%b %d, %Y') }}</strong>
+      <a href="/?week={{ next_week.isoformat() }}" aria-label="Next week">Next →</a>
+    </nav>
+    <section class="days" aria-label="Dinner plan">
+      {% for item in days %}
+      <article class="day-card{% if item.dinner %} planned{% endif %}">
+        <div class="day-label"><span>{{ item.date.strftime('%A') }}</span><time datetime="{{ item.date.isoformat() }}">{{ item.date.strftime('%b %d') }}</time></div>
+        <div class="meal"><p class="meal-kicker">Dinner</p>{% if item.dinner %}<h2>{{ item.dinner }}</h2>{% else %}<h2 class="empty">Not planned yet</h2>{% endif %}</div>
+        <form method="post" action="/plan/day"><input type="hidden" name="day" value="{{ item.date.isoformat() }}"><input type="hidden" name="week" value="{{ monday.isoformat() }}"><button class="button secondary" type="submit">Plan this day</button></form>
+      </article>
+      {% endfor %}
+    </section>
+    <p class="footnote">Planning uses previous dinners for inspiration. Replanning a day replaces that dinner.</p>
+  </main>
+</body>
+</html>

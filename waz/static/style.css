@@ -1,0 +1,274 @@
+:root{
+  font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:#1d302b;
+  background:#f6f5ef
+}
+*{
+  box-sizing:border-box
+}
+body{
+  margin:0
+}
+button,input{
+  font:inherit
+}
+button{
+  cursor:pointer
+}
+a{
+  color:inherit
+}
+.site-header{
+  background:#1d4036;
+  color:#fff
+}
+.header-inner{
+  max-width:1180px;
+  margin:auto;
+  padding:18px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px
+}
+.brand{
+  text-decoration:none;
+  font-weight:800;
+  font-size:23px;
+  letter-spacing:.06em
+}
+.brand span{
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:normal;
+  margin-left:12px;
+  opacity:.75
+}
+.account{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  font-size:14px
+}
+.text-button{
+  background:none;
+  border:0;
+  color:#fff;
+  text-decoration:underline
+}
+.container{
+  max-width:1180px;
+  margin:0 auto;
+  padding:48px 24px 80px
+}
+.page-heading{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom:30px
+}
+.eyebrow{
+  text-transform:uppercase;
+  font-size:12px;
+  letter-spacing:.18em;
+  color:#578373;
+  font-weight:800;
+  margin:0 0 10px
+}
+h1{
+  font-size:clamp(32px,5vw,52px);
+  line-height:1.08;
+  margin:0 0 12px;
+  letter-spacing:-.045em
+}
+.intro{
+  color:#64736d;
+  margin:0;
+  line-height:1.5
+}
+.button{
+  border-radius:10px;
+  border:1px solid transparent;
+  padding:12px 18px;
+  font-weight:750;
+  white-space:nowrap
+}
+.button.primary{
+  background:#de704b;
+  color:#fff
+}
+.button.primary:hover{
+  background:#bf5938
+}
+.button.secondary{
+  background:#eef2ed;
+  color:#245344;
+  border-color:#dbe7dc
+}
+.button.secondary:hover{
+  background:#dfe9df
+}
+.week-nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  border-top:1px solid #dce2da;
+  border-bottom:1px solid #dce2da;
+  padding:17px 4px;
+  margin-bottom:24px
+}
+.week-nav a{
+  text-decoration:none;
+  color:#26684f;
+  font-weight:700
+}
+.week-nav strong{
+  text-align:center
+}
+.days{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:14px
+}
+.day-card{
+  background:#fff;
+  border:1px solid #e0e5dd;
+  border-radius:16px;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  min-height:226px;
+  box-shadow:0 4px 16px #1d403608
+}
+.day-card.planned{
+  border-top:4px solid #85b597
+}
+.day-label{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  font-weight:800
+}
+.day-label time{
+  font-weight:500;
+  color:#74837a
+}
+.meal{
+  flex:1;
+  padding:23px 0 15px
+}
+.meal-kicker{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  color:#8b9c8f;
+  font-weight:800;
+  margin:0 0 8px
+}
+.meal h2{
+  font-size:20px;
+  line-height:1.25;
+  margin:0
+}
+.meal h2.empty{
+  color:#a5afa7;
+  font-weight:500
+}
+.day-card form{
+  align-self:flex-start
+}
+.footnote{
+  font-size:13px;
+  color:#87938a;
+  margin-top:25px
+}
+.alert{
+  padding:14px 17px;
+  border-radius:10px;
+  background:#fff0e8;
+  color:#8f3b25;
+  border:1px solid #f1c9b5;
+  margin:0 0 20px
+}
+.login-page{
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  padding:24px;
+  background:#e9eee8
+}
+.login-card{
+  width:min(100%,440px);
+  background:#fff;
+  padding:42px;
+  border-radius:20px;
+  box-shadow:0 18px 50px #1d403620
+}
+.login-card h1{
+  font-size:39px
+}
+.login-card fieldset{
+  border:0;
+  padding:0;
+  margin:30px 0 22px
+}
+.login-card legend{
+  font-weight:750;
+  margin-bottom:12px
+}
+.people{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px
+}
+.person input{
+  position:absolute;
+  opacity:0
+}
+.person span{
+  display:block;
+  text-align:center;
+  padding:15px 5px;
+  border:1px solid #d8e3d9;
+  border-radius:10px;
+  font-weight:750;
+  cursor:pointer
+}
+.person input:checked+span{
+  background:#e4f1e7;
+  border-color:#548765
+}
+.person input:focus-visible+span{
+  outline:3px solid #e0805a
+}
+.wide{
+  width:100%
+}
+.login-card .footnote{
+  text-align:center;
+  margin-bottom:0
+}
+@media(max-width:640px){
+  .header-inner,.page-heading{
+  align-items:flex-start;
+  flex-direction:column
+}
+.account{
+  width:100%;
+  justify-content:space-between
+}
+.container{
+  padding-top:32px
+}
+.page-heading form,.page-heading .button{
+  width:100%
+}
+.week-nav{
+  font-size:13px
+}
+.login-card{
+  padding:28px
+}
+}
