@@ -1,0 +1,24 @@
+[project]
+name = "waz"
+version = "0.1.0"
+description = "A shared family dinner planner prototype"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi",
+    "itsdangerous",
+    "jinja2",
+    "openai",
+    "pydantic",
+    "python-multipart",
+    "uvicorn",
+]
+
+[dependency-groups]
+dev = ["httpx", "pytest"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
